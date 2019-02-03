@@ -12,4 +12,11 @@ bazi se čuvaju i podaci o svim filmovima koji se prikazuju u kinu ili će
  se uskoro prikazivati te je moguće na zahtjev prikazati i te 
 informacije. Moguće je i izraditi te isprintati račun. Aplikacija prati i
  zaduženja osoblja kina. 
+ 
+## Dependencies
+MS Access Database Engine, koji se može skinuti s Microsoftove stranice: https://www.microsoft.com/en-us/download/confirmation.aspx?id=23734
+
+## To do
+Printanje računa, peglanje formi, neke admin-level stvari dozvoliti samo admin-level korisnicima
+
 
