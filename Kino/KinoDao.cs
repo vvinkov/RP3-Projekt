@@ -12,20 +12,27 @@ namespace Kino
     // klasa za spajanje na bazu
     // i rad s bazom
 
-    static class KinoDao
+    class KinoDao
     {
         private static OleDbConnection iConn = null;
         private static OleDbDataReader iReader = null;
-        private const string iConnString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=D:\\Sranja\\Desktop\\Kino-20190203T132010Z-001yxyxyx\\Kino\\Kino\\Kino.accdb";
+        private readonly string iConnString;
 
-        
+        public KinoDao(string PathToDB)
+        {
+            if (iConn == null)
+            {
+                iConnString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=" + PathToDB;
+                iConn = new OleDbConnection(iConnString);
+            }
+        }
 
         // uspostavi vezu s bazom
-        static KinoDao()
-        {
-            if(iConn == null)
-                iConn = new OleDbConnection(iConnString);
-        }
+        //static void Initialize(string PathToDB)
+        //{
+        //    if(iConn == null)
+        //        iConn = new OleDbConnection(iConnString);
+        //}
 
         internal static DataTable getAllKupljenaSjedala(int idTermina)
         {

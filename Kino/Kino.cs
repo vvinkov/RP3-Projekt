@@ -15,9 +15,11 @@ namespace Kino
     {
 
         internal static int idZaposlenika;
+        KinoDao DB;
 
-        public Kino()
+        public Kino(string PathToDB)
         {
+            DB = new KinoDao(PathToDB);
             InitializeComponent();
         }
 

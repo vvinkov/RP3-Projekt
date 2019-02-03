@@ -12,11 +12,16 @@ namespace Kino
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if(args.Length == 0)
+            {
+                MessageBox.Show("Obavezno zadajte bazu podataka!", "Greška");
+                return;
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Kino());
+            Application.Run(new Kino(args[0]));
         }
     }
 }

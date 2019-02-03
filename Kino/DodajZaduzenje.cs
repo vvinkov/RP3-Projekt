@@ -92,5 +92,10 @@ namespace Kino
 
             return true;
         }
+
+        private void txtIme_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
