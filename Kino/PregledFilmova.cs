@@ -37,7 +37,6 @@ namespace Kino
                         {
                             row.Selected = true;
                             searchFlag = true;
-                            // break;
                         }
                         else
                         {

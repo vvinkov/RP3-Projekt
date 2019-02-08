@@ -85,7 +85,8 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Name = "PregledTerminaFilmova";
-            this.Text = "PregledTerminaFilmova";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Pregled termina filmova";
             this.Load += new System.EventHandler(this.PregledTerminaFilmova_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTermini)).EndInit();
             this.ResumeLayout(false);

@@ -13,6 +13,9 @@ namespace Kino
 {
     public partial class PregledDvorane : Form
     {
+        int idTermina;
+        internal static bool odustaniFlag = true;
+
         public PregledDvorane()
         {
             InitializeComponent();
@@ -21,13 +24,20 @@ namespace Kino
         public PregledDvorane(int idTermina)
         {
             InitializeComponent();
+
+            this.idTermina = idTermina;
+            loadAndDraw();
+        }
+
+        private void loadAndDraw()
+        {
             int brojDvorane = KinoDao.getBrojDvorane(idTermina);
             DataTable infoDvorane = KinoDao.getInfoDvorana(brojDvorane);
             int brojSjedala = 0;
             int brojRedova = 0;
-            if(infoDvorane.Rows.Count == 1)
+            if (infoDvorane.Rows.Count == 1)
             {
-                foreach(DataRow row in infoDvorane.Rows)
+                foreach (DataRow row in infoDvorane.Rows)
                 {
                     lblDvorana.Text += " " + row["BROJ_DVORANE"].ToString();
                     lblTip.Text += " " + row["TIP_DVORANE"].ToString();
@@ -37,33 +47,34 @@ namespace Kino
             }
             DataTable kupljenaSjedala = KinoDao.getAllKupljenaSjedala(idTermina);
 
-            ArrayList poljeBrojSjedala = new ArrayList(kupljenaSjedala.Rows.Count);
-            ArrayList poljeBrojReda = new ArrayList(kupljenaSjedala.Rows.Count);
+            HashSet<Tuple<int, int>> koordinateSjedala = new HashSet<Tuple<int, int>>();
             ArrayList poljeBrojKarta = new ArrayList(kupljenaSjedala.Rows.Count);
 
-            foreach(DataRow row in kupljenaSjedala.Rows)
+            foreach (DataRow row in kupljenaSjedala.Rows)
             {
-                poljeBrojSjedala.Add(Int32.Parse(row["BROJ_SJEDALA"].ToString()));
-                poljeBrojReda.Add(Int32.Parse(row["RED_SJEDALA"].ToString()));
+                koordinateSjedala.Add(new Tuple<int, int>(Int32.Parse(row["RED_SJEDALA"].ToString()),
+                                                          Int32.Parse(row["BROJ_SJEDALA"].ToString())));
                 poljeBrojKarta.Add(Int32.Parse(row["BROJ_KARTE"].ToString()));
             }
 
-            if(kupljenaSjedala.Rows.Count > 0 && brojRedova > 0 && brojSjedala > 0)
+            if (kupljenaSjedala.Rows.Count > 0 && brojRedova > 0 && brojSjedala > 0)
             {
                 int brojSjedalaURedu = brojSjedala / brojRedova;
+                tableSjedala.Width = (brojSjedalaURedu + 1) * 30;
+                tableSjedala.Height = (brojRedova + 1) * 30;
 
                 formatTable(brojSjedalaURedu, brojRedova);
 
                 for (int i = 0; i < brojRedova; ++i)
                 {
-                    for(int j = 0; j < brojSjedalaURedu; ++j)
+                    for (int j = 0; j < brojSjedalaURedu; ++j)
                     {
                         Label sjedalo = new Label();
-                        sjedalo.Name = "lblSjedalo" + i + "" + j;
+                        sjedalo.Name = "" + i + "." + j;
                         sjedalo.AutoSize = true;
                         sjedalo.Dock = DockStyle.Fill;
 
-                        if (poljeBrojReda.IndexOf(i+1) >= 0 && poljeBrojSjedala.IndexOf(j+1) >= 0)
+                        if (koordinateSjedala.Contains(new Tuple<int, int>(i+1, j+1)))
                         {
                             sjedalo.BackColor = Color.Red;
                             sjedalo.ForeColor = Color.Red;
@@ -76,13 +87,10 @@ namespace Kino
                             sjedalo.MouseDoubleClick += new MouseEventHandler(kupiKartu);
                         }
 
-                       tableSjedala.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, tableSjedala.Width / brojSjedalaURedu));
-                       tableSjedala.RowStyles.Add(new RowStyle(SizeType.Absolute, tableSjedala.Height / brojRedova));
-                       tableSjedala.Controls.Add(sjedalo);
+                        tableSjedala.Controls.Add(sjedalo);
                     }
                 }
             }
-            
         }
 
         private void formatTable(int brojSjedalaURedu, int brojRedova)
@@ -91,13 +99,26 @@ namespace Kino
             tableSjedala.RowStyles.Clear();
             tableSjedala.ColumnCount = brojSjedalaURedu;
             tableSjedala.RowCount = brojRedova;
-            tableSjedala.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, tableSjedala.Width / brojSjedalaURedu));
-            tableSjedala.RowStyles.Add(new RowStyle(SizeType.Absolute, tableSjedala.Height / brojRedova));
+            for(int i = 0; i < brojSjedalaURedu; ++i)
+                tableSjedala.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30));
+            for(int i = 0; i < brojRedova; ++i)
+                tableSjedala.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
         }
 
-        private void kupiKartu(object sender, EventArgs e)
+        private void kupiKartu(object sender, MouseEventArgs e)
         {
-
+            Label lblKlik = (Label)sender;
+            KupiKartu karta = new KupiKartu(idTermina, lblKlik.Name); 
+            this.Hide();
+            karta.ShowDialog();
+            // neki refresh
+            if (!odustaniFlag)
+            {
+                loadAndDraw();
+                odustaniFlag = true;
+            }
+            
+            this.Show();
         }
     }
 }

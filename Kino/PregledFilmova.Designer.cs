@@ -140,6 +140,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pregledFilmovi);
             this.Name = "PregledFilmova";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregled filmova";
             this.Load += new System.EventHandler(this.PregledFilmova_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pregledFilmovi)).EndInit();

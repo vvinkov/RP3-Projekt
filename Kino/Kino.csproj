@@ -72,6 +72,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KinoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KupiKartu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KupiKartu.designer.cs">
+      <DependentUpon>KupiKartu.cs</DependentUpon>
+    </Compile>
     <Compile Include="PregledDvorane.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kino.resx">
       <DependentUpon>Kino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KupiKartu.resx">
+      <DependentUpon>KupiKartu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PregledDvorane.resx">
       <DependentUpon>PregledDvorane.cs</DependentUpon>
@@ -151,7 +160,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kino.accdb">

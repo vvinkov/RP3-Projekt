@@ -17,6 +17,6 @@ informacije. Moguće je i izraditi te isprintati račun. Aplikacija prati i
 MS Access Database Engine 2007, koji se može skinuti s Microsoftove stranice: https://www.microsoft.com/en-us/download/confirmation.aspx?id=23734
 
 ## To do
-Printanje računa, peglanje formi, neke admin-level stvari dozvoliti samo admin-level korisnicima
+Peglanje formi, neke admin-level stvari dozvoliti samo admin-level korisnicima, doraditi rezerviranje karata
 
 

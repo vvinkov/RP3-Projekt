@@ -27,12 +27,28 @@ namespace Kino
             }
         }
 
-        // uspostavi vezu s bazom
-        //static void Initialize(string PathToDB)
-        //{
-        //    if(iConn == null)
-        //        iConn = new OleDbConnection(iConnString);
-        //}
+        internal static int getMaxIdKarte()
+        {
+            int maxId = -1;
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Sjedalo_002, iConn);
+                maxId = (int) command.ExecuteScalar();
+            }
+            catch (Exception e)
+            {
+                // obradi iznimku
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            return maxId;
+        }
 
         internal static DataTable getAllKupljenaSjedala(int idTermina)
         {
@@ -96,6 +112,126 @@ namespace Kino
                     iReader.Close();
             }
             return infoDvorana;
+        }
+
+        internal static DataTable getInfoTermin(int idTermina)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Termin_003, iConn);
+                OleDbParameter paramIdTermina = new OleDbParameter
+                {
+                    ParameterName = "@idtermina",
+                    Value = idTermina
+                };
+
+                command.Parameters.Add(paramIdTermina);
+                iReader = command.ExecuteReader();
+                dataTable.Load(iReader);
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+                if (iReader != null)
+                    iReader.Close();
+            }
+
+            return dataTable;
+        }
+
+        internal static DataTable getFilmById(int idFilma)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Film_003, iConn);
+                OleDbParameter paramIdFilma = new OleDbParameter
+                {
+                    ParameterName = "@idfilma",
+                    Value = idFilma
+                };
+
+                command.Parameters.Add(paramIdFilma);
+                iReader = command.ExecuteReader();
+                dataTable.Load(iReader);
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+                if (iReader != null)
+                    iReader.Close();
+            }
+
+            return dataTable;
+        }
+
+        internal static int addNovuKartu(int idTermina, int idZaposlenika, int brojSjedala, int brojReda, int maxIdKarte)
+        {
+            int rowsAdded = 0;
+
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Sjedalo_003, iConn);
+                OleDbParameter paramIdTermina = new OleDbParameter
+                {
+                    ParameterName = "@idtermina",
+                    Value = idTermina
+                };
+                OleDbParameter paramIdZapos = new OleDbParameter
+                {
+                    ParameterName = "@idzapos",
+                    Value = idZaposlenika
+                };
+                OleDbParameter paramBrSjedala = new OleDbParameter
+                {
+                    ParameterName = "@brsjedala",
+                    Value = brojSjedala + 1
+                };
+                OleDbParameter paramBrReda = new OleDbParameter
+                {
+                    ParameterName = "@brreda",
+                    Value = brojReda + 1
+                };
+                OleDbParameter paramMaxIdKarte = new OleDbParameter
+                {
+                    ParameterName = "@maxid",
+                    Value = maxIdKarte
+                };
+                command.Parameters.Add(paramIdTermina);
+                command.Parameters.Add(paramIdZapos);
+                command.Parameters.Add(paramBrSjedala);
+                command.Parameters.Add(paramBrReda);
+                command.Parameters.Add(paramMaxIdKarte);
+
+                rowsAdded = command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+                if (iReader != null)
+                    iReader.Close();
+            }
+
+            return rowsAdded;
         }
 
         internal static int getBrojDvorane(int idTermina)

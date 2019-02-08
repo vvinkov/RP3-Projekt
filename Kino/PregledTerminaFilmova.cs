@@ -98,7 +98,6 @@ namespace Kino
                 dataGridTermini.Columns[6].HeaderText = "Trajanje";
 
                 dataGridTermini.ReadOnly = true;
-                dataGridTermini.Enter += new EventHandler(prikaziDvoranu);
                 dataGridTermini.MouseDoubleClick += new MouseEventHandler(prikaziDvoranu);
             }
             
@@ -113,7 +112,7 @@ namespace Kino
                 {
                     PregledDvorane dvorana = new PregledDvorane((int) row.Cells[0].Value);
                     this.Hide();
-                    dvorana.Show();
+                    dvorana.ShowDialog();
                     this.Show();
                 }
                

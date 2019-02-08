@@ -53,10 +53,9 @@
             this.btnDodaj.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDodaj.Location = new System.Drawing.Point(258, 245);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Location = new System.Drawing.Point(344, 302);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(73, 24);
+            this.btnDodaj.Size = new System.Drawing.Size(97, 30);
             this.btnDodaj.TabIndex = 0;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -67,10 +66,9 @@
             this.btnOdustani.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOdustani.Location = new System.Drawing.Point(335, 245);
-            this.btnOdustani.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOdustani.Location = new System.Drawing.Point(447, 302);
             this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(73, 24);
+            this.btnOdustani.Size = new System.Drawing.Size(97, 30);
             this.btnOdustani.TabIndex = 1;
             this.btnOdustani.Text = "Odustani";
             this.btnOdustani.UseVisualStyleBackColor = true;
@@ -80,10 +78,9 @@
             // 
             this.lblIme.AutoSize = true;
             this.lblIme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblIme.Location = new System.Drawing.Point(177, 1);
-            this.lblIme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIme.Location = new System.Drawing.Point(238, 1);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(27, 33);
+            this.lblIme.Size = new System.Drawing.Size(34, 41);
             this.lblIme.TabIndex = 2;
             this.lblIme.Text = "Ime:";
             this.lblIme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -92,10 +89,9 @@
             // 
             this.lblPrezime.AutoSize = true;
             this.lblPrezime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblPrezime.Location = new System.Drawing.Point(157, 35);
-            this.lblPrezime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrezime.Location = new System.Drawing.Point(209, 43);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(47, 33);
+            this.lblPrezime.Size = new System.Drawing.Size(63, 41);
             this.lblPrezime.TabIndex = 3;
             this.lblPrezime.Text = "Prezime:";
             this.lblPrezime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -104,10 +100,9 @@
             // 
             this.lblUloga.AutoSize = true;
             this.lblUloga.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblUloga.Location = new System.Drawing.Point(166, 69);
-            this.lblUloga.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUloga.Location = new System.Drawing.Point(223, 85);
             this.lblUloga.Name = "lblUloga";
-            this.lblUloga.Size = new System.Drawing.Size(38, 33);
+            this.lblUloga.Size = new System.Drawing.Size(49, 41);
             this.lblUloga.TabIndex = 4;
             this.lblUloga.Text = "Uloga:";
             this.lblUloga.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -116,10 +111,9 @@
             // 
             this.lblPocDatum.AutoSize = true;
             this.lblPocDatum.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblPocDatum.Location = new System.Drawing.Point(121, 103);
-            this.lblPocDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPocDatum.Location = new System.Drawing.Point(165, 127);
             this.lblPocDatum.Name = "lblPocDatum";
-            this.lblPocDatum.Size = new System.Drawing.Size(83, 33);
+            this.lblPocDatum.Size = new System.Drawing.Size(107, 41);
             this.lblPocDatum.TabIndex = 5;
             this.lblPocDatum.Text = "Datum početka:";
             this.lblPocDatum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -128,10 +122,9 @@
             // 
             this.lblPocVrijeme.AutoSize = true;
             this.lblPocVrijeme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblPocVrijeme.Location = new System.Drawing.Point(118, 137);
-            this.lblPocVrijeme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPocVrijeme.Location = new System.Drawing.Point(159, 169);
             this.lblPocVrijeme.Name = "lblPocVrijeme";
-            this.lblPocVrijeme.Size = new System.Drawing.Size(86, 33);
+            this.lblPocVrijeme.Size = new System.Drawing.Size(113, 41);
             this.lblPocVrijeme.TabIndex = 6;
             this.lblPocVrijeme.Text = "Vrijeme početka:";
             this.lblPocVrijeme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,10 +133,9 @@
             // 
             this.lblKrajDatum.AutoSize = true;
             this.lblKrajDatum.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblKrajDatum.Location = new System.Drawing.Point(137, 171);
-            this.lblKrajDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblKrajDatum.Location = new System.Drawing.Point(184, 211);
             this.lblKrajDatum.Name = "lblKrajDatum";
-            this.lblKrajDatum.Size = new System.Drawing.Size(67, 33);
+            this.lblKrajDatum.Size = new System.Drawing.Size(88, 41);
             this.lblKrajDatum.TabIndex = 7;
             this.lblKrajDatum.Text = "Datum kraja:";
             this.lblKrajDatum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,10 +144,9 @@
             // 
             this.lblKrajVrijeme.AutoSize = true;
             this.lblKrajVrijeme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblKrajVrijeme.Location = new System.Drawing.Point(134, 205);
-            this.lblKrajVrijeme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblKrajVrijeme.Location = new System.Drawing.Point(178, 253);
             this.lblKrajVrijeme.Name = "lblKrajVrijeme";
-            this.lblKrajVrijeme.Size = new System.Drawing.Size(70, 34);
+            this.lblKrajVrijeme.Size = new System.Drawing.Size(94, 42);
             this.lblKrajVrijeme.TabIndex = 8;
             this.lblKrajVrijeme.Text = "Vrijeme kraja:";
             this.lblKrajVrijeme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -182,7 +173,6 @@
             this.tblDodajZaduzenje.Controls.Add(this.txtUloga, 1, 2);
             this.tblDodajZaduzenje.Dock = System.Windows.Forms.DockStyle.Top;
             this.tblDodajZaduzenje.Location = new System.Drawing.Point(0, 0);
-            this.tblDodajZaduzenje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tblDodajZaduzenje.Name = "tblDodajZaduzenje";
             this.tblDodajZaduzenje.RowCount = 7;
             this.tblDodajZaduzenje.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -192,36 +182,32 @@
             this.tblDodajZaduzenje.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tblDodajZaduzenje.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tblDodajZaduzenje.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tblDodajZaduzenje.Size = new System.Drawing.Size(414, 240);
+            this.tblDodajZaduzenje.Size = new System.Drawing.Size(552, 296);
             this.tblDodajZaduzenje.TabIndex = 9;
             // 
             // txtIme
             // 
             this.txtIme.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtIme.Location = new System.Drawing.Point(209, 7);
-            this.txtIme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIme.Location = new System.Drawing.Point(279, 10);
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(114, 20);
+            this.txtIme.Size = new System.Drawing.Size(150, 22);
             this.txtIme.TabIndex = 9;
-            this.txtIme.TextChanged += new System.EventHandler(this.txtIme_TextChanged);
             // 
             // txtPrezime
             // 
             this.txtPrezime.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPrezime.Location = new System.Drawing.Point(209, 41);
-            this.txtPrezime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrezime.Location = new System.Drawing.Point(279, 52);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(114, 20);
+            this.txtPrezime.Size = new System.Drawing.Size(150, 22);
             this.txtPrezime.TabIndex = 10;
             // 
             // pocDatum
             // 
             this.pocDatum.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pocDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pocDatum.Location = new System.Drawing.Point(209, 109);
-            this.pocDatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pocDatum.Location = new System.Drawing.Point(279, 136);
             this.pocDatum.Name = "pocDatum";
-            this.pocDatum.Size = new System.Drawing.Size(114, 20);
+            this.pocDatum.Size = new System.Drawing.Size(150, 22);
             this.pocDatum.TabIndex = 17;
             this.pocDatum.Value = new System.DateTime(2019, 1, 30, 0, 0, 0, 0);
             // 
@@ -229,10 +215,9 @@
             // 
             this.pocVrijeme.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pocVrijeme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.pocVrijeme.Location = new System.Drawing.Point(209, 143);
-            this.pocVrijeme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pocVrijeme.Location = new System.Drawing.Point(279, 178);
             this.pocVrijeme.Name = "pocVrijeme";
-            this.pocVrijeme.Size = new System.Drawing.Size(114, 20);
+            this.pocVrijeme.Size = new System.Drawing.Size(150, 22);
             this.pocVrijeme.TabIndex = 18;
             this.pocVrijeme.Value = new System.DateTime(2019, 1, 30, 18, 4, 25, 0);
             // 
@@ -240,10 +225,9 @@
             // 
             this.krajDatum.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.krajDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.krajDatum.Location = new System.Drawing.Point(209, 177);
-            this.krajDatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.krajDatum.Location = new System.Drawing.Point(279, 220);
             this.krajDatum.Name = "krajDatum";
-            this.krajDatum.Size = new System.Drawing.Size(114, 20);
+            this.krajDatum.Size = new System.Drawing.Size(150, 22);
             this.krajDatum.TabIndex = 19;
             this.krajDatum.Value = new System.DateTime(2019, 1, 30, 0, 0, 0, 0);
             // 
@@ -251,32 +235,29 @@
             // 
             this.krajVrijeme.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.krajVrijeme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.krajVrijeme.Location = new System.Drawing.Point(209, 212);
-            this.krajVrijeme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.krajVrijeme.Location = new System.Drawing.Point(279, 263);
             this.krajVrijeme.Name = "krajVrijeme";
-            this.krajVrijeme.Size = new System.Drawing.Size(114, 20);
+            this.krajVrijeme.Size = new System.Drawing.Size(150, 22);
             this.krajVrijeme.TabIndex = 20;
             this.krajVrijeme.Value = new System.DateTime(2019, 1, 30, 18, 5, 0, 0);
             // 
             // txtUloga
             // 
             this.txtUloga.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtUloga.Location = new System.Drawing.Point(209, 75);
-            this.txtUloga.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUloga.Location = new System.Drawing.Point(279, 94);
             this.txtUloga.Name = "txtUloga";
-            this.txtUloga.Size = new System.Drawing.Size(114, 20);
+            this.txtUloga.Size = new System.Drawing.Size(150, 22);
             this.txtUloga.TabIndex = 16;
             // 
             // DodajZaduzenje
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 275);
+            this.ClientSize = new System.Drawing.Size(552, 338);
             this.Controls.Add(this.tblDodajZaduzenje);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnDodaj);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DodajZaduzenje";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj zaduženje";
