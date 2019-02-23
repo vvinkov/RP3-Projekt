@@ -19,9 +19,12 @@ namespace Kino
         internal const string sql_Film_003 = @"SELECT NAZIV_FILMA, TRAJANJE FROM FILM WHERE ID_FILMA=@idfilma";
         internal const string sql_Film_004 = @"INSERT INTO FILM (NAZIV_FILMA, DAT_POC_PRIKAZ, DAT_ZAVR_PRIKAZ, TRAJANJE) VALUES (@nazivfilma, @datpoc, @datzavr, @trajanje)";
         internal const string sql_Film_005 = @"SELECT COUNT(*) FROM FILM WHERE NAZIV_FILMA = @nazivfilma";
+        internal const string sql_Film_006 = @"SELECT ID_FILMA, NAZIV_FILMA FROM FILM WHERE DAT_POC_PRIKAZ <= @datum AND DAT_ZAVR_PRIKAZ >= @datum";
+        internal const string sql_Film_007 = @"SELECT DAT_POC_PRIKAZ, DAT_ZAVR_PRIKAZ FROM FILM WHERE ID_FILMA = @idfilma";
         internal const string sql_Termin_001 = @"SELECT ID_TERMINA, NAZIV_FILMA, DATUM, VRIJEME, BROJ_DVORANE, CIJENA, TRAJANJE FROM (TERMIN T INNER JOIN FILM F ON T.ID_FILMA=F.ID_FILMA)";
         internal const string sql_Termin_002 = @"SELECT [BROJ_DVORANE] FROM TERMIN WHERE [ID_TERMINA] = @idtermina";
         internal const string sql_Termin_003 = @"SELECT * FROM TERMIN WHERE [ID_TERMINA]=@idtermina";
+        internal const string sql_Termin_004 = @"INSERT INTO TERMIN (ID_FILMA, BROJ_DVORANE, DATUM, VRIJEME, CIJENA) VALUES (@film, @dvorana, @datum, @vrijeme, @cijena)";
         internal const string sql_Dvorana_001 = @"SELECT * FROM DVORANA WHERE [BROJ_DVORANE] = @idtermina";
         internal const string sql_Dvorana_002 = @"INSERT INTO DVORANA (BROJ_DVORANE, TIP_DVORANE, BROJ_SJEDALA, BROJ_REDOVA) VALUES (@brojdvorane, @tip, @brojsjedala, @brojredova)";
         internal const string sql_Dvorana_003 = @"SELECT MAX(BROJ_DVORANE) FROM DVORANA";

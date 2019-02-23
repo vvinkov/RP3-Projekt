@@ -13,7 +13,10 @@ namespace Kino
         private void PregledFilmova_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kinoDataSet.Film' table. You can move, or remove it, as needed.
-            filmTableAdapter.Fill(kinoDataSet.Film);
+            //W filmTableAdapter.Fill(kinoDataSet.Film);
+            //filmTableAdapter.ClearBeforeFill = true;
+
+            pregledFilmovi.DataSource = KinoDao.getAllFilmovi();
 
         }
 
@@ -79,7 +82,9 @@ namespace Kino
         {
             DodajFilm noviFilm = new DodajFilm();
             noviFilm.ShowDialog();
-            // refresh
+            pregledFilmovi.DataSource = KinoDao.getAllFilmovi();
+            pregledFilmovi.Update();
+            pregledFilmovi.Refresh();
         }
     }
 }

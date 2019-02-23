@@ -740,5 +740,94 @@ namespace Kino
             }
             return dataTable;
         }
+
+        internal static DataTable getAktualniFilmovi(DateTime datum)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Film_006, iConn);
+                OleDbParameter paramDatum = new OleDbParameter
+                {
+                    ParameterName = "@datum",
+                    Value = datum.Date.ToShortDateString()
+                };
+
+                command.Parameters.Add(paramDatum);
+                iReader = command.ExecuteReader();
+
+                dataTable.Load(iReader);
+            }
+            catch (Exception e)
+            {
+                // obradi iznimku
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+                if (iReader != null)
+                    iReader.Close();
+            }
+            return dataTable;
+        }
+
+        internal static int addTerminFilma(int idFilm, int brojDvorane, DateTime datum, TimeSpan vrijeme, double cijena)
+        {
+            int rowsAdded = 0;
+            try
+            { 
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Termin_004, iConn);
+                OleDbParameter IdFilm = new OleDbParameter
+                {
+                    ParameterName = "@film",
+                    Value = idFilm
+                };
+                OleDbParameter Dvorana = new OleDbParameter
+                {
+                    ParameterName = "@dvorana",
+                    Value = brojDvorane
+                };
+                OleDbParameter Datum = new OleDbParameter
+                {
+                    ParameterName = "@datum",
+                    Value = datum.Date.ToShortDateString()
+                };
+                OleDbParameter Vrijeme = new OleDbParameter
+                {
+                    ParameterName = "@vrijeme",
+                    Value = vrijeme
+                };
+                OleDbParameter Cijena = new OleDbParameter
+                {
+                    ParameterName = "@cijena",
+                    Value = cijena
+                };
+
+                command.Parameters.Add(IdFilm);
+                command.Parameters.Add(Dvorana);
+                command.Parameters.Add(Datum);
+                command.Parameters.Add(Vrijeme);
+                command.Parameters.Add(Cijena);
+
+                rowsAdded = command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                // obradi iznimku
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            return rowsAdded;
+        }
+
     }
 }

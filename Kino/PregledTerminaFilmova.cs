@@ -123,6 +123,8 @@ namespace Kino
         {
             DodajTerminFilma noviTermin = new DodajTerminFilma();
             noviTermin.ShowDialog();
+            dataGridTermini.DataSource = KinoDao.getAllTermini().DefaultView;
+            formatTable();
         }
     }
 }

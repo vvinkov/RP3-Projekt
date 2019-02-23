@@ -132,6 +132,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlQueries.cs" />
+    <EmbeddedResource Include="DodajTerminFilma.resx">
+      <DependentUpon>DodajTerminFilma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodajZaduzenje.resx">
       <DependentUpon>DodajZaduzenje.cs</DependentUpon>
     </EmbeddedResource>
