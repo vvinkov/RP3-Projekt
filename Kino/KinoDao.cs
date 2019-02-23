@@ -18,6 +18,7 @@ namespace Kino
         private static OleDbDataReader iReader = null;
         private readonly string iConnString;
 
+        // uspostavi vezu s bazom
         public KinoDao(string PathToDB)
         {
             if (iConn == null)
@@ -50,6 +51,227 @@ namespace Kino
             return maxId;
         }
 
+        internal static DataTable getAllDvorane()
+        {
+            DataTable dvorane = new DataTable();
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Dvorana_004, iConn);
+                iReader = command.ExecuteReader();
+                dvorane.Load(iReader);
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+                if (iReader != null)
+                    iReader.Close();
+            }
+
+            return dvorane;
+        }
+
+
+        internal static int addNovaDvorana(string tip, decimal brojSjedala, decimal brojRedova)
+        {
+            int rowsAdded = -1;
+            try
+            {
+                int brojDvorane = getMaxBrojDvorane();
+                if (brojDvorane > 0)
+                {
+                    iConn.Open();
+                    OleDbCommand command = new OleDbCommand(SqlQueries.sql_Dvorana_002, iConn);
+                    OleDbParameter paramBrojDvorane = new OleDbParameter
+                    {
+                        ParameterName = "@brojdvorane",
+                        Value = brojDvorane + 1
+                    };
+                    OleDbParameter paramTip = new OleDbParameter
+                    {
+                        ParameterName = "@tip",
+                        Value = tip.ToUpper()
+                    };
+                    OleDbParameter paramBrojSjedala = new OleDbParameter
+                    {
+                        ParameterName = "@brojsjedala",
+                        Value = (int)brojSjedala
+                    };
+                    OleDbParameter paramBrojRedova = new OleDbParameter
+                    {
+                        ParameterName = "@brojredova",
+                        Value = (int)brojRedova
+                    };
+
+                    command.Parameters.Add(paramBrojDvorane);
+                    command.Parameters.Add(paramTip);
+                    command.Parameters.Add(paramBrojSjedala);
+                    command.Parameters.Add(paramBrojRedova);
+
+                    rowsAdded = command.ExecuteNonQuery();
+                }
+                else
+                {
+                    throw new Exception("Broj dvorane nije uredu!");
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            return rowsAdded;
+        }
+
+        internal static DataTable getZaduzenjaForOne(string ime, string prezime)
+        {
+            DataTable zaduzenja = new DataTable();
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Smjena_004, iConn);
+                OleDbParameter paramIme = new OleDbParameter
+                {
+                    ParameterName = "@ime",
+                    Value = ime
+                };
+                OleDbParameter paramPrezime = new OleDbParameter
+                {
+                    ParameterName = "@prezime",
+                    Value = prezime
+                };
+                command.Parameters.Add(paramIme);
+                command.Parameters.Add(paramPrezime);
+
+                iReader = command.ExecuteReader();
+                zaduzenja.Load(iReader);
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+                if (iReader != null)
+                    iReader.Close();
+            }
+
+            return zaduzenja;
+        }
+
+        private static int getMaxBrojDvorane()
+        {
+            int maxBrojDvorane = -1;
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Dvorana_003, iConn);
+                maxBrojDvorane = (int)command.ExecuteScalar();
+            }
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            return maxBrojDvorane;
+        }
+
+        internal static int dodajNoviFilm(string nazivFilma, DateTime datPocPrikaz, DateTime datZavrPrikaz, Decimal trajanje)
+        {
+            int rowsAdded = -1;
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Film_004, iConn);
+                OleDbParameter paramNaziv = new OleDbParameter
+                {
+                    ParameterName = "@nazivfilma",
+                    Value = nazivFilma
+                };
+                OleDbParameter paramDatPoc = new OleDbParameter
+                {
+                    ParameterName = "@datpoc",
+                    Value = datPocPrikaz.Date
+                };
+                OleDbParameter paramDatZavr = new OleDbParameter
+                {
+                    ParameterName = "@datzavr",
+                    Value = datZavrPrikaz.Date
+                };
+                OleDbParameter paramTrajanje = new OleDbParameter
+                {
+                    ParameterName = "@trajanje",
+                    Value = (int)trajanje
+                };
+
+                command.Parameters.Add(paramNaziv);
+                command.Parameters.Add(paramDatPoc);
+                command.Parameters.Add(paramDatZavr);
+                command.Parameters.Add(paramTrajanje);
+
+                rowsAdded = (int)command.ExecuteNonQuery();
+            }
+
+            catch (Exception e)
+            {
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            return rowsAdded;
+        }
+
+        internal static bool checkIfFilmExists(string nazivFilma)
+        {
+            int exists = 0;
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Film_005, iConn);
+                OleDbParameter paramNaziv = new OleDbParameter
+                {
+                    ParameterName = "@nazivfilma",
+                    Value = nazivFilma
+                };
+                command.Parameters.Add(paramNaziv);
+                exists = (int)command.ExecuteScalar();
+            }
+            catch (Exception e)
+            {
+                // obradi iznimku
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            if (exists != 0)
+                return true;
+            return false;
+        }
         internal static DataTable getAllKupljenaSjedala(int idTermina)
         {
             DataTable kupljenaSjedala = new DataTable();
@@ -196,6 +418,7 @@ namespace Kino
                     ParameterName = "@idzapos",
                     Value = idZaposlenika
                 };
+                // u bazi zapisujemo od 1 broj i red sjedala
                 OleDbParameter paramBrSjedala = new OleDbParameter
                 {
                     ParameterName = "@brsjedala",

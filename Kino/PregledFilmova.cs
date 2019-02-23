@@ -13,14 +13,14 @@ namespace Kino
         private void PregledFilmova_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kinoDataSet.Film' table. You can move, or remove it, as needed.
-            this.filmTableAdapter.Fill(this.kinoDataSet.Film);
+            filmTableAdapter.Fill(kinoDataSet.Film);
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // očisti selection od prije
-            this.pregledFilmovi.ClearSelection();
+            pregledFilmovi.ClearSelection();
 
             string text = txtSearch.Text;
 
@@ -28,7 +28,7 @@ namespace Kino
             {
                 bool searchFlag = false;
 
-                this.pregledFilmovi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                pregledFilmovi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 try
                 {
                     foreach (DataGridViewRow row in pregledFilmovi.Rows)
@@ -73,6 +73,13 @@ namespace Kino
                 if(!searchFlag)
                     MessageBox.Show("Nema rezultata pretraživanja!");
             }
+        }
+
+        private void dodajNoviFilm(object sender, EventArgs e)
+        {
+            DodajFilm noviFilm = new DodajFilm();
+            noviFilm.ShowDialog();
+            // refresh
         }
     }
 }

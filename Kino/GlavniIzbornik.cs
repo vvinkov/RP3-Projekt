@@ -25,32 +25,35 @@ namespace Kino
 
         private void pregledDvorana(object sender, EventArgs e)
         {
-
+            PregledDvorana sveDvorane = new PregledDvorana();
+            Hide();
+            sveDvorane.ShowDialog();
+            Show();
         }
 
         private void pregledFilmova(object sender, EventArgs e)
         {
             PregledFilmova filmovi = new PregledFilmova();
-            this.Hide();
+            Hide();
             filmovi.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void pregledZaduzenja(object sender, EventArgs e)
         {
             PregledZaduzenja zaduzenja = new PregledZaduzenja();
-            this.Hide();
+            Hide();
             zaduzenja.ShowDialog();
-            this.Show();
+            Show();
             
         }
 
         private void pregledTermina(object sender, MouseEventArgs e)
         {
             PregledTerminaFilmova termini = new PregledTerminaFilmova();
-            this.Hide();
+            Hide();
             termini.ShowDialog();
-            this.Show();
+            Show();
         }
     }
 }

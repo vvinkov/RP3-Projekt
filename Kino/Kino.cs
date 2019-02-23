@@ -32,9 +32,9 @@ namespace Kino
             if (idZaposlenika > 0)
             {
                 GlavniIzbornik glavniIzbornik = new GlavniIzbornik("Dobrodošli " + txtUsername.Text + "!");
-                this.Hide();
+                Hide();
                 glavniIzbornik.ShowDialog();
-                this.Close();
+                Close();
             }
             else
             {

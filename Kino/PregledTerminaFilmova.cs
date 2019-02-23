@@ -20,7 +20,7 @@ namespace Kino
         // mozda se ovaj search stavi u neku Utility klasu
         private void search(object sender, EventArgs e)
         {
-            this.dataGridTermini.ClearSelection();
+            dataGridTermini.ClearSelection();
 
             string text = txtSearch.Text;
 
@@ -28,7 +28,7 @@ namespace Kino
             {
                 bool searchFlag = false;
 
-                this.dataGridTermini.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridTermini.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 try
                 {
                     foreach (DataGridViewRow row in dataGridTermini.Rows)
@@ -111,12 +111,18 @@ namespace Kino
                 foreach(DataGridViewRow row in selectedRows)
                 {
                     PregledDvorane dvorana = new PregledDvorane((int) row.Cells[0].Value);
-                    this.Hide();
+                    Hide();
                     dvorana.ShowDialog();
-                    this.Show();
+                    Show();
                 }
                
             }
+        }
+
+        private void dodajTerminFilma(object sender, EventArgs e)
+        {
+            DodajTerminFilma noviTermin = new DodajTerminFilma();
+            noviTermin.ShowDialog();
         }
     }
 }

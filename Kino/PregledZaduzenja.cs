@@ -39,9 +39,11 @@ namespace Kino
         private void dodajZaduzenje(object sender, EventArgs e)
         {
             DodajZaduzenje dodaj = new DodajZaduzenje();
-            this.Hide();
             dodaj.ShowDialog();
-            this.Close();
+            // refresh tablice
+            dataGridZaduzenja.DataSource = null;
+            dataGridZaduzenja.DataSource = KinoDao.getAllZaduzenja().DefaultView;
+            formatTable();
         }
     }
 }

@@ -48,6 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DodajDvoranu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajDvoranu.designer.cs">
+      <DependentUpon>DodajDvoranu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajFilm.designer.cs">
+      <DependentUpon>DodajFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajTerminFilma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajTerminFilma.designer.cs">
+      <DependentUpon>DodajTerminFilma.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodajZaduzenje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +85,9 @@
     <Compile Include="Kino.Designer.cs">
       <DependentUpon>Kino.cs</DependentUpon>
     </Compile>
+    <Compile Include="KinoDataSet.cs">
+      <DependentUpon>KinoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="KinoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,6 +98,12 @@
     </Compile>
     <Compile Include="KupiKartu.designer.cs">
       <DependentUpon>KupiKartu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledDvorana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledDvorana.designer.cs">
+      <DependentUpon>PregledDvorana.cs</DependentUpon>
     </Compile>
     <Compile Include="PregledDvorane.cs">
       <SubType>Form</SubType>

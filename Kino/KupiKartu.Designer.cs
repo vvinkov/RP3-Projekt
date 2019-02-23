@@ -219,6 +219,8 @@
             this.Controls.Add(this.tableKarta);
             this.Controls.Add(this.btnPotvrdi);
             this.Controls.Add(this.btnOdustani);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "KupiKartu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kupnja karte";

@@ -70,6 +70,8 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnPrijava);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Kino";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kino";

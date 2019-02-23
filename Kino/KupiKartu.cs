@@ -42,8 +42,8 @@ namespace Kino
         {
             this.idTermina = idTermina;
             int indeksTocke = brojIRedSjedala.IndexOf('.');
-            brojReda = Int32.Parse(brojIRedSjedala.Substring(0, indeksTocke));
-            brojSjedala = Int32.Parse(brojIRedSjedala.Substring(indeksTocke + 1, brojIRedSjedala.Length - indeksTocke - 1));
+            brojReda = Int32.Parse(brojIRedSjedala.Substring(0, indeksTocke)) - 1;
+            brojSjedala = Int32.Parse(brojIRedSjedala.Substring(indeksTocke + 1, brojIRedSjedala.Length - indeksTocke - 1)) - 1;
             maxIdKarte = KinoDao.getMaxIdKarte() + 1;
 
             DataTable infoTermin = KinoDao.getInfoTermin(idTermina);
@@ -130,7 +130,7 @@ namespace Kino
         private void odustani(object sender, EventArgs e)
         {
             PregledDvorane.odustaniFlag = true;
-            this.Close();
+            Close();
         }
 
         private void potvrdi(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace Kino
                 printImage();
                 PregledDvorane.odustaniFlag = false;
             }
-            this.Close();
+            Close();
         }
 
         private void printImage()

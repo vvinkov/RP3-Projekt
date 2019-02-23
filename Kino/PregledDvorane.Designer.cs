@@ -58,16 +58,16 @@
             // tableSjedala
             // 
             this.tableSjedala.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableSjedala.ColumnCount = 2;
-            this.tableSjedala.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableSjedala.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableSjedala.ColumnCount = 1;
+            this.tableSjedala.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableSjedala.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableSjedala.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableSjedala.Location = new System.Drawing.Point(0, 144);
+            this.tableSjedala.Location = new System.Drawing.Point(0, 181);
             this.tableSjedala.Name = "tableSjedala";
-            this.tableSjedala.RowCount = 2;
-            this.tableSjedala.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableSjedala.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableSjedala.Size = new System.Drawing.Size(897, 388);
+            this.tableSjedala.RowCount = 1;
+            this.tableSjedala.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableSjedala.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableSjedala.Size = new System.Drawing.Size(903, 351);
             this.tableSjedala.TabIndex = 4;
             // 
             // panelPlatno
@@ -90,16 +90,18 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(897, 138);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(903, 138);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // PregledDvorane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 532);
+            this.ClientSize = new System.Drawing.Size(903, 532);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableSjedala);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PregledDvorane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Pregled dvorane";
