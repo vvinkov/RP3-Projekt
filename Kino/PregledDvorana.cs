@@ -17,6 +17,14 @@ namespace Kino
         {
             dvorane = new KinoDataSetTableAdapters.DvoranaTableAdapter();
             InitializeComponent();
+            if (Kino.admin)
+            {
+                dodajMenuItem.Visible = true;
+            }
+            else
+            {
+                dodajMenuItem.Visible = false;
+            }
         }
 
         private void PregledDvorana_Load(object sender, EventArgs e)

@@ -10,6 +10,14 @@ namespace Kino
         public PregledZaduzenja()
         {
             InitializeComponent();
+            if (Kino.admin)
+            {
+                dodajMenuItem.Visible = true;
+            }
+            else
+            {
+                dodajMenuItem.Visible = false;
+            }
         }
 
         private void PregledZaduzenja_Load(object sender, EventArgs e)

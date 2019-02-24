@@ -10,6 +10,7 @@ namespace Kino
     {
         internal const string sql_Zaposlenik_001 = @"SELECT [ID_ZAPOS] FROM ZAPOSLENIK WHERE [IME]=@ime AND [PREZIME]=@prezime";
         internal const string sql_Zaposlenik_002 = @"SELECT [ID_ZAPOS] FROM ZAPOSLENIK WHERE [USERNAME] = @username";
+        internal const string sql_Zaposlenik_003 = @"SELECT ADMIN FROM ZAPOSLENIK WHERE ID_ZAPOS = @idzaposlenika";
         internal const string sql_Smjena_001 = @"SELECT IME, PREZIME, POC_DATUM, POC_VRIJEME, KRAJ_DATUM, KRAJ_VRIJEME, ULOGA FROM (SMJENA S LEFT JOIN ZAPOSLENIK Z ON S.ID_ZAPOS = Z.ID_ZAPOS)";
         internal const string sql_Smjena_002 = @"SELECT COUNT(*) FROM SMJENA";
         internal const string sql_Smjena_003 = @"INSERT INTO [SMJENA] ([ID_ZAPOS], [POC_DATUM], [POC_VRIJEME], [KRAJ_DATUM], [KRAJ_VRIJEME], [ULOGA]) VALUES (@idzap, @pocdat, @pocvr, @krajdat, @krajvr, @uloga)";

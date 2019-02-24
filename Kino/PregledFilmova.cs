@@ -8,13 +8,21 @@ namespace Kino
         public PregledFilmova()
         {
             InitializeComponent();
+            if (Kino.admin)
+            {
+                dodajMenuItem.Visible = true;
+            }
+            else
+            {
+                dodajMenuItem.Visible = false;
+            }
         }
 
         private void PregledFilmova_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kinoDataSet.Film' table. You can move, or remove it, as needed.
-            //W filmTableAdapter.Fill(kinoDataSet.Film);
-            //filmTableAdapter.ClearBeforeFill = true;
+            // filmTableAdapter.Fill(kinoDataSet.Film);
+            // filmTableAdapter.ClearBeforeFill = true;
 
             pregledFilmovi.DataSource = KinoDao.getAllFilmovi();
 

@@ -15,6 +15,14 @@ namespace Kino
         public PregledTerminaFilmova()
         {
             InitializeComponent();
+            if (Kino.admin)
+            {
+                dodajMenuItem.Visible = true;
+            }
+            else
+            {
+                dodajMenuItem.Visible = false;
+            }
         }
 
         // mozda se ovaj search stavi u neku Utility klasu

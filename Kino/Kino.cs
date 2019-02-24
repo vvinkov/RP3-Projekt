@@ -15,6 +15,7 @@ namespace Kino
     {
 
         internal static int idZaposlenika;
+        internal static bool admin;
         KinoDao DB;
 
         public Kino(string PathToDB)
@@ -29,6 +30,7 @@ namespace Kino
             // ako ima otvori formu GlavniIzbornik
             // ako nema prikazi odgovarajucu poruku
             idZaposlenika = KinoDao.checkIfZaposlenikExists(txtUsername.Text);
+            admin = KinoDao.jelAdmin(idZaposlenika);
             if (idZaposlenika > 0)
             {
                 GlavniIzbornik glavniIzbornik = new GlavniIzbornik("Dobrodošli " + txtUsername.Text + "!");

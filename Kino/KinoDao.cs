@@ -28,6 +28,38 @@ namespace Kino
             }
         }
 
+        internal static bool jelAdmin(int idZaposlenika)
+        {
+            bool adm = false;
+            try
+            {
+                iConn.Open();
+                OleDbCommand command = new OleDbCommand(SqlQueries.sql_Zaposlenik_003, iConn);
+
+                OleDbParameter paramId = new OleDbParameter
+                {
+                    ParameterName = "@idzaposlenika",
+                    Value = idZaposlenika
+                };
+
+                command.Parameters.Add(paramId);
+
+                adm = (int)command.ExecuteScalar() == 1;
+            }
+            catch (Exception e)
+            {
+                // obradi iznimku
+                System.Console.Out.WriteLine(e.ToString());
+            }
+            finally
+            {
+                if (iConn != null)
+                    iConn.Close();
+            }
+
+            return adm;
+        }
+
         internal static int getMaxIdKarte()
         {
             int maxId = -1;
