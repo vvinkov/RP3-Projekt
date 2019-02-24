@@ -25,7 +25,7 @@ namespace Kino
             }
         }
 
-        // mozda se ovaj search stavi u neku Utility klasu
+        // mozda se ovaj search stavi u neku Utility klasu ovdje  cijepam atome
         private void search(object sender, EventArgs e)
         {
             dataGridTermini.ClearSelection();
@@ -35,7 +35,7 @@ namespace Kino
             if (text.Length > 0)
             {
                 bool searchFlag = false;
-
+                
                 dataGridTermini.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 try
                 {
@@ -51,7 +51,6 @@ namespace Kino
                         {
                             try
                             {
-
                                 DateTime datum = DateTime.Parse(text);
 
                                 if (((DateTime)row.Cells[2].Value).Day.Equals(datum.Day))
@@ -118,9 +117,13 @@ namespace Kino
             {
                 foreach(DataGridViewRow row in selectedRows)
                 {
-                    PregledDvorane dvorana = new PregledDvorane((int) row.Cells[0].Value);
-                    Hide();
-                    dvorana.ShowDialog();
+                    do
+                    {
+                        PregledDvorane dvorana = new PregledDvorane((int) row.Cells[0].Value);
+                        Hide();
+                        dvorana.ShowDialog();
+                    }
+                    while (PregledDvorane.odustaniFlag == false);
                     Show();
                 }
                

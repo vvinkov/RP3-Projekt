@@ -22,7 +22,7 @@ namespace Kino
         {
             // TODO: This line of code loads data into the 'kinoDataSet.Film' table. You can move, or remove it, as needed.
             // filmTableAdapter.Fill(kinoDataSet.Film);
-            // filmTableAdapter.ClearBeforeFill = true;
+            filmTableAdapter.ClearBeforeFill = true;
 
             pregledFilmovi.DataSource = KinoDao.getAllFilmovi();
 
@@ -93,6 +93,22 @@ namespace Kino
             pregledFilmovi.DataSource = KinoDao.getAllFilmovi();
             pregledFilmovi.Update();
             pregledFilmovi.Refresh();
+        }
+
+        private void izbrišiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = pregledFilmovi.SelectedRows.Count - 1; i >= 0; --i)
+                {
+                    KinoDao.deleteFilm(Int32.Parse(pregledFilmovi.SelectedRows[i].Cells[0].Value.ToString()));
+                    pregledFilmovi.Rows.RemoveAt(pregledFilmovi.SelectedRows[i].Index);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }

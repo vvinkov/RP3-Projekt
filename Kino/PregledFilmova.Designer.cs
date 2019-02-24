@@ -65,11 +65,12 @@
             this.tRAJANJEDataGridViewTextBoxColumn});
             this.pregledFilmovi.DataSource = this.filmBindingSource;
             this.pregledFilmovi.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.pregledFilmovi.Location = new System.Drawing.Point(1, 74);
+            this.pregledFilmovi.Location = new System.Drawing.Point(1, 60);
+            this.pregledFilmovi.Margin = new System.Windows.Forms.Padding(2);
             this.pregledFilmovi.Name = "pregledFilmovi";
             this.pregledFilmovi.RowTemplate.Height = 24;
             this.pregledFilmovi.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.pregledFilmovi.Size = new System.Drawing.Size(792, 373);
+            this.pregledFilmovi.Size = new System.Drawing.Size(594, 303);
             this.pregledFilmovi.TabIndex = 1;
             // 
             // iDFILMADataGridViewTextBoxColumn
@@ -119,16 +120,18 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(12, 34);
+            this.txtSearch.Location = new System.Drawing.Point(9, 28);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(312, 22);
+            this.txtSearch.Size = new System.Drawing.Size(235, 20);
             this.txtSearch.TabIndex = 3;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(330, 28);
+            this.btnSearch.Location = new System.Drawing.Point(248, 23);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(102, 35);
+            this.btnSearch.Size = new System.Drawing.Size(76, 28);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Traži";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -141,28 +144,30 @@
             this.dodajMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(595, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // dodajMenuItem
             // 
             this.dodajMenuItem.Name = "dodajMenuItem";
-            this.dodajMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.dodajMenuItem.Size = new System.Drawing.Size(50, 20);
             this.dodajMenuItem.Text = "Dodaj";
             this.dodajMenuItem.Click += new System.EventHandler(this.dodajNoviFilm);
             // 
             // PregledFilmova
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 449);
+            this.ClientSize = new System.Drawing.Size(595, 365);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pregledFilmovi);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PregledFilmova";

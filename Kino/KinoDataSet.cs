@@ -1,6 +1,8 @@
-﻿namespace Kino {
-    
-    
-    public partial class KinoDataSet {
+﻿namespace Kino
+{
+
+
+    public partial class KinoDataSet
+    {
     }
 }

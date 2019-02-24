@@ -861,5 +861,23 @@ namespace Kino
             return rowsAdded;
         }
 
+        internal static int deleteFilm(int idFilm)
+        {
+            int deletedRows = 0;
+            iConn.Open();
+            OleDbCommand command = new OleDbCommand(SqlQueries.sql_Film_008, iConn);
+            OleDbParameter IdFilm = new OleDbParameter
+            {
+                ParameterName = "@idfilma",
+                Value = idFilm
+            };
+
+            command.Parameters.Add(IdFilm);
+            deletedRows = command.ExecuteNonQuery();
+
+            return deletedRows;
+        }
+
+
     }
 }

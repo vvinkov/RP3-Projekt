@@ -15,13 +15,14 @@ namespace Kino
         internal const string sql_Smjena_002 = @"SELECT COUNT(*) FROM SMJENA";
         internal const string sql_Smjena_003 = @"INSERT INTO [SMJENA] ([ID_ZAPOS], [POC_DATUM], [POC_VRIJEME], [KRAJ_DATUM], [KRAJ_VRIJEME], [ULOGA]) VALUES (@idzap, @pocdat, @pocvr, @krajdat, @krajvr, @uloga)";
         internal const string sql_Smjena_004 = @"SELECT POC_DATUM, POC_VRIJEME, KRAJ_DATUM, KRAJ_VRIJEME, ULOGA FROM (SMJENA S LEFT JOIN ZAPOSLENIK Z ON S.ID_ZAPOS = Z.ID_ZAPOS WHERE Z.IME = @ime AND Z.PREZIME = @prezime)";
-        internal const string sql_Film_001 = @"SELECT [NAZIV_FILMA], [DAT_POC_PRIKAZ], [DAT_ZAVR_PRIKAZ], [TRAJANJE] FROM FILM F ORDER BY [NAZIV_FILMA], [DAT_POC_PRIKAZ]";
+        internal const string sql_Film_001 = @"SELECT [NAZIV_FILMA], [DAT_POC_PRIKAZ], [DAT_ZAVR_PRIKAZ], [TRAJANJE], [ID_FILMA] FROM FILM F ORDER BY [NAZIV_FILMA], [DAT_POC_PRIKAZ]";
         internal const string sql_Film_002 = @"SELECT COUNT(*) FROM FILM F";
         internal const string sql_Film_003 = @"SELECT NAZIV_FILMA, TRAJANJE FROM FILM WHERE ID_FILMA=@idfilma";
         internal const string sql_Film_004 = @"INSERT INTO FILM (NAZIV_FILMA, DAT_POC_PRIKAZ, DAT_ZAVR_PRIKAZ, TRAJANJE) VALUES (@nazivfilma, @datpoc, @datzavr, @trajanje)";
         internal const string sql_Film_005 = @"SELECT COUNT(*) FROM FILM WHERE NAZIV_FILMA = @nazivfilma";
         internal const string sql_Film_006 = @"SELECT ID_FILMA, NAZIV_FILMA FROM FILM WHERE DAT_POC_PRIKAZ <= @datum AND DAT_ZAVR_PRIKAZ >= @datum";
         internal const string sql_Film_007 = @"SELECT DAT_POC_PRIKAZ, DAT_ZAVR_PRIKAZ FROM FILM WHERE ID_FILMA = @idfilma";
+        internal const string sql_Film_008 = @"DELETE FROM FILM WHERE ID_FILMA = @idfilma";
         internal const string sql_Termin_001 = @"SELECT ID_TERMINA, NAZIV_FILMA, DATUM, VRIJEME, BROJ_DVORANE, CIJENA, TRAJANJE FROM (TERMIN T INNER JOIN FILM F ON T.ID_FILMA=F.ID_FILMA)";
         internal const string sql_Termin_002 = @"SELECT [BROJ_DVORANE] FROM TERMIN WHERE [ID_TERMINA] = @idtermina";
         internal const string sql_Termin_003 = @"SELECT * FROM TERMIN WHERE [ID_TERMINA]=@idtermina";

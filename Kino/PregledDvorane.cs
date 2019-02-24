@@ -10,7 +10,8 @@ namespace Kino
     public partial class PregledDvorane : Form
     {
         int idTermina;
-        internal static bool odustaniFlag = true;
+        internal static bool odustaniFlag;
+       // internal bool kupljenaFlag = false;
         int brojDvorane = -1;
         DataTable infoDvorane = null;
         DataTable kupljenaSjedala = null;
@@ -20,11 +21,13 @@ namespace Kino
 
         public PregledDvorane()
         {
+            odustaniFlag = true;
             InitializeComponent();
         }
 
         public PregledDvorane(int idTermina)
         {
+            odustaniFlag = true;
             InitializeComponent();
 
             this.idTermina = idTermina;
@@ -74,7 +77,7 @@ namespace Kino
                 }
             }
 
-            if (kupljenaSjedala.Rows.Count > 0 && brojRedova > 0 && brojSjedala > 0)
+            if (/*kupljenaSjedala.Rows.Count > 0 && */brojRedova > 0 && brojSjedala > 0)
             {
                 int brojSjedalaURedu = brojSjedala / brojRedova;
 
@@ -154,17 +157,19 @@ namespace Kino
             KupiKartu karta = new KupiKartu(idTermina, lblKlik.Name); 
             Hide();
             karta.ShowDialog();
-            // neki refresh
             if (!odustaniFlag)
             {
+                //tableSjedala.Controls.Clear();
                 tableSjedala = new TableLayoutPanel();
                 kupljenaSjedala = null;
                 loadAndDraw();
-                odustaniFlag = true;
-                Refresh();
+//                odustaniFlag = true;
+                Close();
             }
 
             Show();
+           // for (int i = 0; i < tableSjedala.Controls.Count; ++i) tableSjedala.Controls[i].Refresh();
         }
+
     }
 }

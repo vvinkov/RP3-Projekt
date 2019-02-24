@@ -50,7 +50,7 @@ namespace Kino
             foreach (DataRow row in infoTermin.Rows)
             {
                 idFilma = (int)row["ID_FILMA"];
-                datum = ((DateTime)row["DATUM"]).Day.ToString();
+                datum = ((DateTime)row["DATUM"]).Date.ToShortDateString();
                 vrijeme = ((DateTime)row["VRIJEME"]).TimeOfDay.ToString();
                 brojDvorane = row["BROJ_DVORANE"].ToString();
                 cijena = row["CIJENA"].ToString();
