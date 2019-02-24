@@ -16,5 +16,5 @@ informacije. Moguće je i izraditi te isprintati račun. Aplikacija prati i
 ## Dependencies
 MS Access Database Engine 2007, koji se može skinuti s Microsoftove stranice: https://www.microsoft.com/en-us/download/confirmation.aspx?id=23734
 
-
-
+## Korištenje
+Program prima jedan argument: apsolutni path do MS Access baze.
